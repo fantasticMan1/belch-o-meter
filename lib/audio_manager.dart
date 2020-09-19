@@ -1,8 +1,23 @@
-import 'package:flutter_sound/flutter_sound.dart';
-import 'useless.dart';
+import 'package:flutter/services.dart';
+import 'package:soundpool/soundpool.dart';
 
 class AudioManager {
-  void playSample(String path) {}
+  Soundpool _soundpool;
+
+  AudioManager() {
+    _soundpool = Soundpool();
+  }
+
+  void playSample(String path) async {
+    try {
+      int soundId = await rootBundle.load(path).then((ByteData soundData) {
+        return _soundpool.load(soundData);
+      });
+      int streamId = await _soundpool.play(soundId);
+    } catch (e) {
+      print(e);
+    }
+  }
 
   /// Normalizes a sound file such that it:
   /// - has a -1 dB peak loudness

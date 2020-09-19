@@ -19,8 +19,8 @@ class BelchCard extends StatelessWidget {
 
   String _fname;
   String _title;
-
   AudioManager audioManager = AudioManager();
+
   BelchAnalysis belchAnalysis = BelchAnalysis();
 
   BelchCard(String fname) {
@@ -39,7 +39,7 @@ class BelchCard extends StatelessWidget {
     int rating = belchAnalysis.analyzeBelch([]);
 
     return InkWell(
-      onTap: () => Navigator.of(context).push(new BelchPageRoute(this._title)),
+      onTap: () => Navigator.of(context).push(new BelchPageRoute(_title)),
       child: Container(
         height: HEIGHT,
         child: Row(
@@ -47,10 +47,10 @@ class BelchCard extends StatelessWidget {
             Container(width: SPACING),
             IconButton(
               icon: Icon(Icons.play_arrow),
-              onPressed: () => audioManager.playSample(this._fname),
+              onPressed: () => audioManager.playSample(_fname),
             ),
             Container(width: SPACING),
-            Text("${this._title}", style: TextStyle(fontSize: 18)),
+            Text(_title, style: TextStyle(fontSize: 18)),
             Expanded(child: Container()),
             FiveStarRating(rating),
             Container(width: SPACING),
