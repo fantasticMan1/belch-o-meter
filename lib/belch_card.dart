@@ -6,6 +6,7 @@ import 'useless.dart';
 import 'audio_manager.dart';
 import 'belch_analysis.dart';
 import 'five_star_rating_widget.dart';
+import 'theme.dart';
 
 /// 6 Sep 20
 ///
@@ -32,36 +33,71 @@ class BelchCard extends StatelessWidget {
     );
   }
 
+  Color _getCardColor(int rating) {
+    if (rating <= 1) return Color(0xFF473027); //ONE_STAR_COLOR;
+    if (rating <= 2) return Color(0xFF373737); //TWO_STAR_COLOR;
+    if (rating <= 3) return Color(0xFF804020); //THREE_STAR_COLOR;
+    if (rating <= 4) return Color(0xFFA0A0A0); //FOUR_STAR_COLOR;
+    if (rating <= 5) return Color(0xFFD0B040); //FIVE_STAR_COLOR;
+  }
+
   @override
   Widget build(BuildContext context) {
     Useless useless = Useless(context);
 
     int rating = belchAnalysis.analyzeBelch([]);
 
-    return InkWell(
-      onTap: () => Navigator.of(context).push(new BelchPageRoute(_title)),
-      child: Container(
-        height: HEIGHT,
-        child: Row(
-          children: [
-            Container(width: SPACING),
-            IconButton(
-              icon: Icon(Icons.play_arrow),
-              onPressed: () => audioManager.playSample(_fname),
+    return Container(
+      decoration: BoxDecoration(
+        color: _getCardColor(rating),
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+      ),
+      height: HEIGHT,
+      child: InkWell(
+        onTap: () => Navigator.of(context).push(new BelchPageRoute(_title)),
+        child: Dismissible(
+          key: Key(_fname),
+          background: Container(
+            color: Colors.red,
+            child: Row(
+              children: [
+                Container(width: 20),
+                Icon(Icons.delete),
+                Expanded(child: Container()),
+              ],
             ),
-            Container(width: SPACING),
-            Text(_title, style: TextStyle(fontSize: 18)),
-            Expanded(child: Container()),
-            FiveStarRating(rating),
-            Container(width: SPACING),
-            IconButton(
-              icon: Icon(
-                Icons.favorite_border,
+          ),
+          secondaryBackground: Container(
+            color: Colors.red,
+            child: Row(
+              children: [
+                Expanded(child: Container()),
+                Icon(Icons.delete),
+                Container(width: 20),
+              ],
+            ),
+          ),
+          child: Row(
+            children: [
+              Container(width: SPACING),
+              IconButton(
+                icon: Icon(Icons.play_arrow),
+                onPressed: () => audioManager.playSample(_fname),
               ),
-              onPressed: () => useless.uselessFunction('favorite this belch'),
-            ),
-            Container(width: SPACING),
-          ],
+              Container(width: SPACING),
+              Text(_title, style: TextStyle(fontSize: 18)),
+              Expanded(child: Container()),
+              FiveStarRating(rating),
+              Container(width: SPACING),
+              IconButton(
+                icon: Icon(
+                  Icons.favorite_border,
+                ),
+                onPressed: () => useless.uselessFunction('favorite this belch'),
+              ),
+              Container(width: SPACING),
+            ],
+          ),
         ),
       ),
     );

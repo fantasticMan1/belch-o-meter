@@ -24,17 +24,17 @@ class _MyHomePageState extends State<MyHomePage> {
       body: BelchList(),
       floatingActionButton: Builder(
         builder: (BuildContext context) {
-          return SpeedDial(
-            child: Icon(Icons.add),
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SpeedDialChild(
-                child: Icon(Icons.fiber_manual_record),
-                onTap: () => Useless(context).uselessFunction('record a belch'),
-              ),
-              SpeedDialChild(
-                child: Icon(Icons.folder_open),
-                onTap: () =>
+              FloatingActionButton(
+                  onPressed: () =>
+                      Useless(context).uselessFunction('record a belch'),
+                  child: Icon(Icons.fiber_manual_record)),
+              FloatingActionButton(
+                onPressed: () =>
                     Useless(context).uselessFunction('choose a belch file'),
+                child: Icon(Icons.folder_open),
               ),
             ],
           );
