@@ -20,7 +20,6 @@ class BelchListState extends State {
     return ListView.builder(
       itemCount: filenames.length,
       itemBuilder: (context, index) {
-        bool swipingLeft = false;
         return Dismissible(
           key: UniqueKey(),
           onDismissed: (DismissDirection d) => {},

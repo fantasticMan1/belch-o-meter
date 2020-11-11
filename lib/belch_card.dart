@@ -25,7 +25,6 @@ class BelchCard extends StatefulWidget {
   BelchAnalysis belchAnalysis = BelchAnalysis();
 
   BelchCard(String fname) {
-    // Get just the filename. Chop off path and extension.
     this._fname = fname;
     this.rating = belchAnalysis.analyzeBelch([]);
   }
