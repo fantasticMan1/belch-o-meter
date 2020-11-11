@@ -29,32 +29,32 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(BUTTON_HEIGHT / 2),
-                    topLeft: Radius.circular(BUTTON_HEIGHT / 2),
-                  ),
-                ),
                 height: BUTTON_HEIGHT,
                 width: BUTTON_HEIGHT,
                 child: FlatButton(
+                  color: Colors.red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(BUTTON_HEIGHT / 2),
+                      topLeft: Radius.circular(BUTTON_HEIGHT / 2),
+                    ),
+                  ),
                   onPressed: () =>
                       Useless(context).uselessFunction('record a belch'),
                   child: Icon(Icons.fiber_manual_record),
                 ),
               ),
               Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(BUTTON_HEIGHT / 2),
-                    topRight: Radius.circular(BUTTON_HEIGHT / 2),
-                  ),
-                ),
                 height: BUTTON_HEIGHT,
                 width: BUTTON_HEIGHT,
                 child: FlatButton(
+                  color: Colors.red,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(BUTTON_HEIGHT / 2),
+                      topRight: Radius.circular(BUTTON_HEIGHT / 2),
+                    ),
+                  ),
                   onPressed: () =>
                       Useless(context).uselessFunction('choose a belch file'),
                   child: Icon(Icons.folder_open),
