@@ -22,7 +22,7 @@ class BelchListState extends State {
       itemBuilder: (context, index) {
         bool swipingLeft = false;
         return Dismissible(
-          key: UniqueKey(), //Key(filenames[index]),
+          key: UniqueKey(),
           onDismissed: (DismissDirection d) => {},
           background: Container(
             color: Colors.transparent,
