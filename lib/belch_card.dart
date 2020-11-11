@@ -1,8 +1,5 @@
-import 'package:belchometer/useless.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-
-import 'useless.dart';
 import 'audio_manager.dart';
 import 'belch_analysis.dart';
 import 'five_star_rating_widget.dart';
@@ -68,8 +65,6 @@ class BelchCardState extends State {
 
   @override
   Widget build(BuildContext context) {
-    Useless useless = Useless(context);
-
     return Container(
       color: Colors.transparent,
       margin: const EdgeInsets.all(BelchCard.MARGIN),

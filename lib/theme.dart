@@ -5,4 +5,4 @@ final ThemeData APP_THEME = ThemeData(
   scaffoldBackgroundColor: Colors.black,
 );
 
-final Color ALMOST_BLACK = Color(0xFF101010);
+const Color ALMOST_BLACK = Color(0xFF101010);

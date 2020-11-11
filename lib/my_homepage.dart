@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'belch_list.dart';
 import 'useless.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -13,7 +12,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   final double BUTTON_HEIGHT = 60;
 
   @override

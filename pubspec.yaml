@@ -23,7 +23,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_speed_dial: ^1.2.5
   flutter_sound: ^5.1.1
   soundpool: ^1.1.1
 
