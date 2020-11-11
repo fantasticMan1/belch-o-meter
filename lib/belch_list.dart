@@ -21,7 +21,33 @@ class BelchListState extends State {
       itemCount: filenames.length,
       itemBuilder: (context, index) {
         bool swipingLeft = false;
-        return BelchCard(filenames[index]);
+        return Dismissible(
+          key: UniqueKey(), //Key(filenames[index]),
+          onDismissed: (DismissDirection d) => {},
+          background: Container(
+            color: Colors.transparent,
+            child: Row(
+              children: [
+                Container(width: 2 * BelchCard.MARGIN),
+                Icon(Icons.delete,
+                    color: Colors.red, size: 2 * BelchCard.MARGIN),
+                Expanded(child: Container()),
+              ],
+            ),
+          ),
+          secondaryBackground: Container(
+            color: Colors.transparent,
+            child: Row(
+              children: [
+                Expanded(child: Container()),
+                Icon(Icons.delete,
+                    color: Colors.red, size: 2 * BelchCard.MARGIN),
+                Container(width: 2 * BelchCard.MARGIN),
+              ],
+            ),
+          ),
+          child: BelchCard(filenames[index]),
+        );
       },
     );
   }

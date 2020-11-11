@@ -17,9 +17,11 @@ import 'theme.dart';
 class BelchCard extends StatelessWidget {
   static const double HEIGHT = 100.0;
   static const double SPACING = 10.0;
+  static const double MARGIN = 15.0;
 
   String _fname;
   String _title;
+  Color _cornerColor; // Workaround for corner background clipping.
   AudioManager audioManager = AudioManager();
 
   BelchAnalysis belchAnalysis = BelchAnalysis();
@@ -34,11 +36,12 @@ class BelchCard extends StatelessWidget {
   }
 
   Color _getCardColor(int rating) {
-    if (rating <= 1) return Color(0xFF473027); //ONE_STAR_COLOR;
-    if (rating <= 2) return Color(0xFF373737); //TWO_STAR_COLOR;
-    if (rating <= 3) return Color(0xFF804020); //THREE_STAR_COLOR;
-    if (rating <= 4) return Color(0xFFA0A0A0); //FOUR_STAR_COLOR;
-    if (rating <= 5) return Color(0xFFD0B040); //FIVE_STAR_COLOR;
+    return Color(0xFF101010);
+    // if (rating <= 1) return Color(0xFF473027); //ONE_STAR_COLOR;
+    // if (rating <= 2) return Color(0xFF373737); //TWO_STAR_COLOR;
+    // if (rating <= 3) return Color(0xFF804020); //THREE_STAR_COLOR;
+    // if (rating <= 4) return Color(0xFFA0A0A0); //FOUR_STAR_COLOR;
+    // if (rating <= 5) return Color(0xFFD0B040); //FIVE_STAR_COLOR;
   }
 
   @override
@@ -48,35 +51,16 @@ class BelchCard extends StatelessWidget {
     int rating = belchAnalysis.analyzeBelch([]);
 
     return Container(
-      decoration: BoxDecoration(
-        color: _getCardColor(rating),
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-      ),
-      height: HEIGHT,
-      child: InkWell(
-        onTap: () => Navigator.of(context).push(new BelchPageRoute(_title)),
-        child: Dismissible(
-          key: Key(_fname),
-          background: Container(
-            color: Colors.red,
-            child: Row(
-              children: [
-                Container(width: 20),
-                Icon(Icons.delete),
-                Expanded(child: Container()),
-              ],
-            ),
-          ),
-          secondaryBackground: Container(
-            color: Colors.red,
-            child: Row(
-              children: [
-                Expanded(child: Container()),
-                Icon(Icons.delete),
-                Container(width: 20),
-              ],
-            ),
-          ),
+      color: Colors.transparent,
+      margin: const EdgeInsets.all(MARGIN),
+      child: Container(
+        decoration: BoxDecoration(
+          color: _getCardColor(rating),
+          borderRadius: BorderRadius.all(Radius.circular(MARGIN)),
+        ),
+        height: HEIGHT,
+        child: InkWell(
+          onTap: () => Navigator.of(context).push(new BelchPageRoute(_title)),
           child: Row(
             children: [
               Container(width: SPACING),
