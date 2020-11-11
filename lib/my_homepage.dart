@@ -14,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  final double BUTTON_HEIGHT = 75;
+  final double BUTTON_HEIGHT = 60;
 
   @override
   Widget build(BuildContext context) {

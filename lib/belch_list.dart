@@ -27,9 +27,9 @@ class BelchListState extends State {
             color: Colors.transparent,
             child: Row(
               children: [
-                Container(width: 2 * BelchCard.MARGIN),
+                Container(width: BelchCard.HEIGHT / 3),
                 Icon(Icons.delete,
-                    color: Colors.red, size: 2 * BelchCard.MARGIN),
+                    color: Colors.red, size: BelchCard.HEIGHT / 3),
                 Expanded(child: Container()),
               ],
             ),
@@ -40,8 +40,8 @@ class BelchListState extends State {
               children: [
                 Expanded(child: Container()),
                 Icon(Icons.delete,
-                    color: Colors.red, size: 2 * BelchCard.MARGIN),
-                Container(width: 2 * BelchCard.MARGIN),
+                    color: Colors.red, size: BelchCard.HEIGHT / 3),
+                Container(width: BelchCard.HEIGHT / 3),
               ],
             ),
           ),

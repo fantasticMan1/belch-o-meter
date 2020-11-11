@@ -15,9 +15,9 @@ import 'theme.dart';
 /// Allows swiping to like or discard belches, as well as a play button to hear
 /// it again.
 class BelchCard extends StatefulWidget {
-  static const double HEIGHT = 100.0;
+  static const double HEIGHT = 80.0;
   static const double SPACING = 10.0;
-  static const double MARGIN = 15.0;
+  static const double MARGIN = 10.0;
 
   String _fname;
   int rating;
