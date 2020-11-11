@@ -14,6 +14,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final double BUTTON_HEIGHT = 75;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +28,37 @@ class _MyHomePageState extends State<MyHomePage> {
           return Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              FloatingActionButton(
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(BUTTON_HEIGHT / 2),
+                    topLeft: Radius.circular(BUTTON_HEIGHT / 2),
+                  ),
+                ),
+                height: BUTTON_HEIGHT,
+                width: BUTTON_HEIGHT,
+                child: FlatButton(
                   onPressed: () =>
                       Useless(context).uselessFunction('record a belch'),
-                  child: Icon(Icons.fiber_manual_record)),
-              FloatingActionButton(
-                onPressed: () =>
-                    Useless(context).uselessFunction('choose a belch file'),
-                child: Icon(Icons.folder_open),
+                  child: Icon(Icons.fiber_manual_record),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(BUTTON_HEIGHT / 2),
+                    topRight: Radius.circular(BUTTON_HEIGHT / 2),
+                  ),
+                ),
+                height: BUTTON_HEIGHT,
+                width: BUTTON_HEIGHT,
+                child: FlatButton(
+                  onPressed: () =>
+                      Useless(context).uselessFunction('choose a belch file'),
+                  child: Icon(Icons.folder_open),
+                ),
               ),
             ],
           );
